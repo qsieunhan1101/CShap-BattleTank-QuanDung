@@ -22,6 +22,7 @@ public class Player : MonoBehaviour
 
 
     [SerializeField] private GameObject bulletPrefabs;
+    [SerializeField] private Transform bulletSpawnPoint;
     [SerializeField] private float speed;
     [SerializeField] private Direct currentDirect = Direct.None;
     private Rigidbody rb;
@@ -44,6 +45,11 @@ public class Player : MonoBehaviour
         SetDirectionMove();
         SetRotation();
         rb.velocity = new Vector3(directionMove.x * speed, rb.velocity.y, directionMove.z * speed);
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Attack();
+        }
     }
 
     protected void SetRotation()
@@ -53,6 +59,11 @@ public class Player : MonoBehaviour
 
     protected void Attack()
     {
+        GameObject bullet = Instantiate(bulletPrefabs);
+        Bullet b = bullet.GetComponent<Bullet>();
+        bullet.transform.position = bulletSpawnPoint.position;
+        
+        b.direction = directionMove;
 
     }
     protected void SetDirectionMove()
