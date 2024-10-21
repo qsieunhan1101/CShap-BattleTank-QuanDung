@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.IO.LowLevel.Unsafe;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -15,16 +16,17 @@ public class Enemy : MonoBehaviour
 
     [Header("Pool")]
     [SerializeField] private GameObject bulletBasePrefab;
-
+    [SerializeField] private Transform firePoint;
 
     public Transform bodyTransform;
-    public float fireDelayTime;
+    public float fireDelayTime = 3.18f;
     public float enemySpeed;
     public Vector3[] directions = new Vector3[] { Vector3.forward, Vector3.back,  Vector3.left, Vector3.right };
     public float delta;
     Ray ray;
     RaycastHit hit;
-
+    private float timeToNextFire = 0f;
+    public float moveCheckRadius = 0.66f;
     private void OnEnable()
     {
         OnInit();
@@ -42,7 +44,10 @@ public class Enemy : MonoBehaviour
         }
 
         Debug.DrawRay(transform.position + transform.forward / delta + transform.up , Vector3.down * 10, Color.yellow);
-
+        if (timeToNextFire > 0)
+        {
+            timeToNextFire -= Time.deltaTime;
+        }
     }
 
     public virtual void MovePosition(int dirIndex)
@@ -89,7 +94,7 @@ public class Enemy : MonoBehaviour
     public bool isBoxFront()
     {
         return Physics.Raycast(transform.position + transform.forward + transform.up, Vector3.down * 10, out RaycastHit hit, Mathf.Infinity)
-            && hit.collider.CompareTag("Border");
+            && hit.collider.CompareTag(ConstProperty.borderTag);
     }
 
     public virtual Quaternion GetRotation(Vector3 rotation)
@@ -97,10 +102,23 @@ public class Enemy : MonoBehaviour
         return bodyTransform.rotation = Quaternion.LookRotation(rotation);
     }
 
+    public bool CanMoveWithinRadius()
+    {
+        return !Physics.CheckSphere(transform.position, moveCheckRadius, LayerMask.GetMask(ConstProperty.obstacleLayer));
+    }
 
     public virtual void Fire()
     {
-        Debug.Log("Fire");
+       
+        if (timeToNextFire <= 0f ) 
+        {
+            GameObject enemyBullet = Instantiate(bulletBasePrefab, firePoint.position, Quaternion.identity) as GameObject;
+            BulletEnemy bulletrb = enemyBullet.GetComponent<BulletEnemy>();
+            Vector3 launchDirection = transform.forward;
+            enemyBullet.transform.rotation = Quaternion.LookRotation(launchDirection);
+            bulletrb.thisRigidbody.AddForce(launchDirection * bulletrb.Speed, ForceMode.Impulse);
+            timeToNextFire = fireDelayTime;
+        }
     }
     public virtual void ChangeState(IState newState)
     {
@@ -117,7 +135,8 @@ public class Enemy : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        
+        Gizmos.color = Color.blue; 
+        Gizmos.DrawWireSphere(transform.position, moveCheckRadius); 
     }
 
 }

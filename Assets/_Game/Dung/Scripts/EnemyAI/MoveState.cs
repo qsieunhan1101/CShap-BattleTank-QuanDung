@@ -13,7 +13,7 @@ public class MoveState : IState
         randomTime = Random.Range(2,3);
         dirRandom = Random.Range(0, enemy.directions.Length);
         enemy.RotatePosition(dirRandom);
-        Debug.Log(dirRandom);
+       // Debug.Log(dirRandom);
     }
 
     public void OnExecute(Enemy enemy)
