@@ -13,13 +13,13 @@ public class MoveState : IState
         randomTime = Random.Range(2,3);
         dirRandom = Random.Range(0, enemy.directions.Length);
         enemy.RotatePosition(dirRandom);
-       // Debug.Log(dirRandom);
     }
 
     public void OnExecute(Enemy enemy)
     {
         time += Time.deltaTime;
         enemy.MovePosition(dirRandom);
+        //Check if there is white box then change direction
         if (enemy.isBoxFront() == true)
         {
           
