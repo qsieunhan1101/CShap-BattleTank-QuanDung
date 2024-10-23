@@ -9,7 +9,7 @@ public class DataManager : Singleton<DataManager>
     [SerializeField] private LocalData localData;
     [SerializeField] private PlayerDataFirstRun playerDataFirstRun;
     [SerializeField] private JsonUserHandle jsonUserHandle;    
-    [SerializeField] private PlayerData playerData = new PlayerData(new int());
+    [SerializeField] private PlayerData playerData = new PlayerData();
     
 
     public LocalData LocalData => localData;
@@ -20,10 +20,13 @@ public class DataManager : Singleton<DataManager>
         if (IsFirstRunGame() == true)
         {
             Debug.Log("Lan dau chay game");
+            PlayerPrefs.SetInt(Constant.KEY_FIRSTRUN, 0);
+            PlayerPrefs.Save();
             PlayerFirstRunGameData();
         }
         else
         {
+            LoadPlayerData();
             Debug.Log("khong phai lan dau chay game");
 
         }
@@ -46,14 +49,34 @@ public class DataManager : Singleton<DataManager>
 
     private void PlayerFirstRunGameData()
     {
-        playerData = new PlayerData(playerDataFirstRun.playerData.gold);
+        playerData = new PlayerData(playerDataFirstRun.playerData.gold, playerDataFirstRun.playerData.levelMap, playerDataFirstRun.playerData.tankNames, playerDataFirstRun.playerData.tankStates, playerDataFirstRun.playerData.tankLevels);
 
-        jsonUserHandle.SaveData(playerData);
-        playerData = jsonUserHandle.LoadData();
+
+
+        SaveAndLoadPlayerData();
 
         //Luu lai trang thai da chay game
-        PlayerPrefs.SetInt(Constant.KEY_FIRSTRUN, 0);
-        PlayerPrefs.Save();
+    
+    }
+
+    private void SaveAndLoadPlayerData()
+    {
+        SavePlayerData();
+        LoadPlayerData();
+    }
+    private void SavePlayerData()
+    {
+        jsonUserHandle.SaveData(playerData);
+    }
+
+    private void LoadPlayerData()
+    {
+        playerData = jsonUserHandle.LoadData();
+    }
+
+    public int GetPlayerDataGold()
+    {
+        return jsonUserHandle.LoadData().gold;
     }
 }
 

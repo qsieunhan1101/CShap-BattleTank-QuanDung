@@ -893,9 +893,8 @@ MonoBehaviour:
     gold: 0
     levelMap: 0
     tankNames: 
-    tankOwner: 
-    tankEquipState: 
-    tankLevel: 
+    tankStates: 
+    tankLevels: 
 --- !u!4 &2049525285
 Transform:
   m_ObjectHideFlags: 0
@@ -1645,7 +1644,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5214632741342045520, guid: f42de4fba4fb37f4ab5616818ea25d2a, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -60.99414
+      value: -60.993958
       objectReference: {fileID: 0}
     - target: {fileID: 5255887105311945652, guid: f42de4fba4fb37f4ab5616818ea25d2a, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -1879,6 +1878,14 @@ PrefabInstance:
     - target: {fileID: 4179688636122204060, guid: 3363dfcc64937424f9934380150c6ef1, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6314109764802205436, guid: 3363dfcc64937424f9934380150c6ef1, type: 3}
+      propertyPath: m_text
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 6314109764802205436, guid: 3363dfcc64937424f9934380150c6ef1, type: 3}
+      propertyPath: m_fontSize
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

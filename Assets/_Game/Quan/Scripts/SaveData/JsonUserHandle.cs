@@ -21,7 +21,7 @@ public class JsonUserHandle : MonoBehaviour
             return playerData;
         }
 
-        return new PlayerData(new int());
+        return new PlayerData(new int(), new int(), new List<TankName>(), new List<int>(), new List<int>());
     }
 
     private void PlayerPrefSave(string key, string json)
