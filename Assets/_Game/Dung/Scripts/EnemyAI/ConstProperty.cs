@@ -8,4 +8,5 @@ public static class ConstProperty
     public static readonly string obstacleTag = "DestroyAbleObject";
     public static readonly string borderTag = "Border";
     public static readonly string obstacleLayer = "DestroyableObjectLayer";
+    public static readonly string targetTextureLayer = "TargetTexture";
 }

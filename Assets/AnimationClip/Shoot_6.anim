@@ -2,12 +2,12 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!74 &7400000
 AnimationClip:
-  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shoot
+  m_Name: Shoot_6
+  serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
   m_UseHighQualityCurve: 1
@@ -35,7 +35,7 @@ AnimationClip:
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
       - serializedVersion: 3
         time: 0.13
-        value: {x: -1.2496759E-15, y: 0, z: -0, w: 1}
+        value: {x: -1.2496759e-15, y: 0, z: -0, w: 1}
         inSlope: {x: 0.17966814, y: 0, z: 0, w: 0.00016093004}
         outSlope: {x: 0, y: 0, z: 0, w: 0}
         tangentMode: 1
@@ -56,7 +56,7 @@ AnimationClip:
         time: 0
         value: {x: 0.0004478417, y: 0.08096689, z: -0.0016631713}
         inSlope: {x: 0, y: 0, z: 0}
-        outSlope: {x: -Infinity, y: 1.8503718E-15, z: -4.0802863E-08}
+        outSlope: {x: -Infinity, y: 1.8503718e-15, z: -0.000000040802863}
         tangentMode: 1
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
@@ -64,8 +64,8 @@ AnimationClip:
       - serializedVersion: 3
         time: 0.06
         value: {x: 0.0004478417, y: 0.08096689, z: -0.0082842875}
-        inSlope: {x: 0, y: 7.930166E-16, z: 4.0528153E-08}
-        outSlope: {x: -Infinity, y: 1.8503714E-15, z: 1.7716496E-07}
+        inSlope: {x: 0, y: 7.930166e-16, z: 0.000000040528153}
+        outSlope: {x: -Infinity, y: 1.8503714e-15, z: 0.00000017716496}
         tangentMode: 1
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
@@ -73,7 +73,7 @@ AnimationClip:
       - serializedVersion: 3
         time: 0.13
         value: {x: 0.0004478417, y: 0.08096689, z: -0.0016631713}
-        inSlope: {x: 0, y: 7.9301766E-16, z: -3.2704158E-08}
+        inSlope: {x: 0, y: 7.9301766e-16, z: -0.000000032704158}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 1
         weightedMode: 0
