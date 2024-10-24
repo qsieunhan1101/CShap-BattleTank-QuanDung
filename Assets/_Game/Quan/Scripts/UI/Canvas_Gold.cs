@@ -12,7 +12,7 @@ public class Canvas_Gold : MonoBehaviour
     {
     }
 
-    private void UpdateGoldText()
+    public void UpdateGoldText()
     {
         goldText.text = DataManager.Instance.GetPlayerDataGold().ToString();
     }

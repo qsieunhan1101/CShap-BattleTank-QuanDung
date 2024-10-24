@@ -1,9 +1,14 @@
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ItemTank_Button : MonoBehaviour
 {
+    [SerializeField] private int idTank;
+    [SerializeField] private Button btnSelf;
+    [SerializeField] private GameObject buyTankUI;
+
     [SerializeField] private TextMeshProUGUI nameTank;
     [SerializeField] private Image iconTank;
     [SerializeField] private TextMeshProUGUI priceText;
@@ -15,10 +20,17 @@ public class ItemTank_Button : MonoBehaviour
     [SerializeField] private Slider hpSlider;
     [SerializeField] private Slider speedSlider;
 
-    private int dameMaxValue = 500;
-    private int hpMaxValue = 800;
-    private int speedMaxValue = 200;
+    public int IdTank => idTank;
+    private void Start()
+    {
+        btnSelf.onClick.AddListener(OnSelf);
+    }
 
+    private void OnSelf()
+    {
+        buyTankUI.GetComponent<Canvas_BuyTank>().SetIdTank(idTank);
+        buyTankUI.gameObject.SetActive(true);
+    }
     public void SetUpItemUI(string name, Sprite icon, int price, int dame, int hp, int speed)
     {
         nameTank.text = name;
@@ -35,10 +47,19 @@ public class ItemTank_Button : MonoBehaviour
         speedSlider.value = speed;
     }
 
+    public void SetBuyTankUIGameObject(GameObject newGameobject)
+    {
+        buyTankUI = newGameobject;
+    }
+    public void SetIdTank(int id)
+    {
+        idTank = id;
+    }
+
     private void SetSliderMaxValue()
     {
-        dameSlider.maxValue = dameMaxValue;
-        hpSlider.maxValue = hpMaxValue;
-        speedSlider.maxValue = speedMaxValue;
+        dameSlider.maxValue = Constant.dameMaxValue;
+        hpSlider.maxValue = Constant.hpMaxValue;
+        speedSlider.maxValue = Constant.speedMaxValue;
     }
 }
