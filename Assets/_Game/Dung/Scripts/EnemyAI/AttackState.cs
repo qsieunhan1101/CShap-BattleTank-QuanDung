@@ -6,7 +6,7 @@ public class AttackState : IState
     public void OnEnter(Enemy enemy)
     {
         time = 0f;
-        Debug.Log("Enter Attack State");
+       // Debug.Log("Enter Attack State");
     }
 
     public void OnExecute(Enemy enemy)
@@ -27,7 +27,7 @@ public class AttackState : IState
 
     public void OnExit(Enemy enemy)
     {
-        Debug.Log("Quit Attack State");
+      //  Debug.Log("Quit Attack State");
     }
 
 

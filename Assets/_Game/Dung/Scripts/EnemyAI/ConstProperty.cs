@@ -9,4 +9,6 @@ public static class ConstProperty
     public static readonly string borderTag = "Border";
     public static readonly string obstacleLayer = "DestroyableObjectLayer";
     public static readonly string targetTextureLayer = "TargetTexture";
+
+    public static readonly string shootAnim = "shoot";
 }
