@@ -1,48 +1,51 @@
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class WaveController : MonoBehaviour
 {
-    [SerializeField] public List<GameObject> tankEnemy;
-    [SerializeField] public List<Transform> spawnsTransform;
-    [SerializeField] protected GameObject enemyPrefab;
+    [SerializeField] private List<Wave> waves;
+    [SerializeField] private List<Transform> spawnPoints;
+    [SerializeField] protected GameObject WaveListContainer;
     [SerializeField] protected GameObject effectSpawn;
-    [SerializeField] protected float timeDestroyEffect;
+    [SerializeField] protected GameObject ListEnemy;
+    [SerializeField] protected float timeDestroyEffect = 0.5f;
+    private int currentWaveIndex = 0;
 
-    private void Awake()
+    private void Start()
     {
-        SpawnEnemy();
+        SpawnWave(currentWaveIndex);
     }
-    
-    protected virtual void SpawnEnemy()
+
+    [ContextMenu("Spawn")]
+    private void SpawnWave(int waveIndex)
     {
-        for (int i = spawnsTransform.Count - 1; i >= 0; i--)
+        if (waveIndex >= waves.Count) return;
+
+        Wave wave = waves[waveIndex];
+
+        for (int i = 0; i < wave.enemyPrefabs.Length; i++)
         {
-            GameObject tank = Instantiate(enemyPrefab, spawnsTransform[i].position, spawnsTransform[i].rotation);
-            tank.transform.SetParent(spawnsTransform[i].gameObject.transform);
-            GameObject effect = Instantiate(effectSpawn, spawnsTransform[i].position, spawnsTransform[i].rotation);
-            tankEnemy.Add(tank);
-            Destroy(effect, timeDestroyEffect);
-            spawnsTransform.RemoveAt(i);
-        }
-    }
-    protected void ClearEnemy()
-    {
-        for (int i = 0; i < tankEnemy.Count; i++)
-        {
-            if (tankEnemy[i] == null)
+            for (int j = 0; j < wave.enemyCounts[i]; j++)
             {
-                tankEnemy.RemoveAt(i);
+                GameObject tank = Instantiate(wave.enemyPrefabs[i], spawnPoints[i].position, spawnPoints[i].rotation);
+                tank.transform.SetParent(WaveListContainer.transform);
+                GameObject effect = Instantiate(wave.enemyPrefabs[i], spawnPoints[i].position, spawnPoints[i].rotation);
+                
+                Destroy(effect, timeDestroyEffect);
             }
         }
-        if (tankEnemy.Count == 0)
-        {
-            Destroy(this.gameObject);
-        }
     }
-    private void Update()
+    [ContextMenu("Clear")]
+    public void OnWaveComplete()
     {
-        ClearEnemy();
+        currentWaveIndex++;
+        if (currentWaveIndex < waves.Count)
+        {
+            SpawnWave(currentWaveIndex);
+        }
+        else
+        {
+            Debug.Log("All waves completed!");
+        }
     }
 }

@@ -11505,6 +11505,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 358096142600817915}
+  anim: {fileID: 836145673424881478}
   IsDead: 0
   bulletBasePrefab: {fileID: 2182433969551770968, guid: a65c0860213cfc54d8188490116cd7f3, type: 3}
   firePoint: {fileID: 5718574615689176477}
