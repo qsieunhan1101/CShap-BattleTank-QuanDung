@@ -31,7 +31,15 @@ public class DataManager : Singleton<DataManager>
 
         }
     }
+    private void OnEnable()
+    {
+        Canvas_BuyTank.buyTankEvent += BuyTankEvent;
+    }
 
+    private void OnDisable()
+    {
+        Canvas_BuyTank.buyTankEvent -= BuyTankEvent;
+    }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.G))
@@ -74,6 +82,12 @@ public class DataManager : Singleton<DataManager>
         playerData = jsonUserHandle.LoadData();
     }
 
+    private void BuyTankEvent(int gold, int id)
+    {
+        playerData.gold = gold;
+        playerData.tankStates[id] = 1;
+        SaveAndLoadPlayerData();
+    }
     public int GetPlayerDataGold()
     {
         return jsonUserHandle.LoadData().gold;

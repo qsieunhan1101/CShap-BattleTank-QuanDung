@@ -14,6 +14,7 @@ public class LocalData : ScriptableObject
 
 
     [PreviewField] [SerializeField] private List<Sprite> listIconTank = new List<Sprite>();
+    [PreviewField] [SerializeField] private List<GameObject> listIconTank3D = new List<GameObject>();
     [SerializeField] private List<string> listNameTank = new List<string>();
     [SerializeField] private List<int> listPriceTank = new List<int>();
     [SerializeField] private List<int> listDameTank = new List<int>();
@@ -23,6 +24,10 @@ public class LocalData : ScriptableObject
 
     public List<TankData> ListTankData => listTankData;
 
+    public TankData GetTankDataById(int id)
+    {
+        return listTankData[id];
+    }
 
     [Button("LoadDataOnEditor")]
     public void LoadDataOnEditor()
@@ -32,6 +37,7 @@ public class LocalData : ScriptableObject
         {
             listTankData.Add(new TankData());
             listTankData[i].iconTank = listIconTank[i];
+            listTankData[i].iconTank3D = listIconTank3D[i];
             listTankData[i].nameTank = listNameTank[i];
             listTankData[i].priceTank = listPriceTank[i];
             listTankData[i].dameTank = listDameTank[i];
@@ -47,7 +53,7 @@ public class TankData
 
     public string nameTank;
     [PreviewField] public Sprite iconTank;
-    public GameObject iconTank3D;
+    [PreviewField] public GameObject iconTank3D;
     public int priceTank;
     public int dameTank;
     public int hpTank;

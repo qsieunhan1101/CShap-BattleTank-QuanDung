@@ -11,4 +11,9 @@ public class Constant
     //PlayerPref Key
     public const string KEY_FIRSTRUN = "isFirstRun";
     public const string KEY_PLAYERDATA = "playerData";
+
+    //MaxValueSlider
+    public const int dameMaxValue = 500;
+    public const int hpMaxValue = 800;
+    public const int speedMaxValue = 200;
 }

@@ -678,6 +678,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c77907d9c1e5ad44f8ba7d572a9fc685, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  btnSelf: {fileID: 1753008967586796284}
   nameTank: {fileID: 4239293247176317210}
   iconTank: {fileID: 343538463309753666}
   priceText: {fileID: 4503427203750728473}
