@@ -10,13 +10,12 @@ public class Canvas_BuyTank : MonoBehaviour
     [SerializeField] private int idTank;
     [SerializeField] private Transform modelTankParent;
     [SerializeField] private Slider[] sliders;
-    [SerializeField] private TextMeshProUGUI[] texts;
+    [SerializeField] private TextMeshProUGUI[] textSliders;
     [SerializeField] private TextMeshProUGUI tankNameText;
     [SerializeField] private TextMeshProUGUI textGold;
     [SerializeField] private Button btnBuy;
 
 
-    [SerializeField] private Canvas_Gold canvas_Gold;
 
 
     public static Action<int, int> buyTankEvent;
@@ -68,9 +67,9 @@ public class Canvas_BuyTank : MonoBehaviour
         sliders[1].value = tankData.hpTank;
         sliders[2].value = tankData.speedTank;
 
-        texts[0].text = tankData.dameTank.ToString();
-        texts[1].text = tankData.hpTank.ToString();
-        texts[2].text = tankData.speedTank.ToString();
+        textSliders[0].text = tankData.dameTank.ToString();
+        textSliders[1].text = tankData.hpTank.ToString();
+        textSliders[2].text = tankData.speedTank.ToString();
 
         textGold.text = tankData.priceTank.ToString();
     }
@@ -91,7 +90,7 @@ public class Canvas_BuyTank : MonoBehaviour
             {
                 buyTankEvent(goldOwner, idTank);
             }
-            canvas_Gold.UpdateGoldText();
+            Canvas_Gold.Instance.UpdateGoldText();
             gameObject.SetActive(false);
         }
     }

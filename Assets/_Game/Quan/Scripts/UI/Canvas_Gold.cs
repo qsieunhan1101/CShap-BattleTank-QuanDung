@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class Canvas_Gold : MonoBehaviour
+public class Canvas_Gold : Singleton<Canvas_Gold>
 {
     [SerializeField] private TextMeshProUGUI goldText;
 
