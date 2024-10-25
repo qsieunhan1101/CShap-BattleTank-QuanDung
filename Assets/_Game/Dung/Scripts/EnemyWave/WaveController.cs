@@ -30,7 +30,6 @@ public class WaveController : MonoBehaviour
                 GameObject tank = Instantiate(wave.enemyPrefabs[i], spawnPoints[i].position, spawnPoints[i].rotation);
                 tank.transform.SetParent(WaveListContainer.transform);
                 GameObject effect = Instantiate(wave.enemyPrefabs[i], spawnPoints[i].position, spawnPoints[i].rotation);
-                
                 Destroy(effect, timeDestroyEffect);
             }
         }
