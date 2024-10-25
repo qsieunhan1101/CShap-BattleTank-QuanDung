@@ -11,4 +11,5 @@ public static class ConstProperty
     public static readonly string targetTextureLayer = "TargetTexture";
 
     public static readonly string shootAnim = "shoot";
+    public static readonly string SpawnPoint = "EnemySpawnPoint";
 }

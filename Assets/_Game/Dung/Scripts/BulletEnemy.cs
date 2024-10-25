@@ -16,10 +16,10 @@ public class BulletEnemy : MonoBehaviour
 
     Transform thisTransform;
     bool isLiving = true;
-    Ray ray = new Ray();
+    //Ray ray = new Ray();
     Transform hitTransform;
    
-    float damage = 10f;
+    //float damage = 10f;
     private void Start()
     {
         bulletBody.SetActive(true);
@@ -37,7 +37,7 @@ public class BulletEnemy : MonoBehaviour
     {
         if (other.CompareTag(ConstProperty.obstacleTag))
         {
-            Debug.Log(other.gameObject.name);
+            //Debug.Log(other.gameObject.name);
             other.gameObject.SetActive(false);
             thisRigidbody.isKinematic = true;
             bulletBody.SetActive(false);
