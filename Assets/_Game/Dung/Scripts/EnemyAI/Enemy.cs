@@ -11,12 +11,11 @@ using static UnityEngine.GraphicsBuffer;
 
 public class Enemy : MonoBehaviour
 {
-    #region variable
     IState currentState;
     [Header("Character_Enemy")]
     [SerializeField] private Rigidbody rb;
     [SerializeField] Animator anim;
-    public bool IsDead = false;
+    public bool IsDead;
 
     [Header("Pool")]
     [SerializeField] private GameObject bulletBasePrefab;
@@ -145,16 +144,11 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    [ContextMenu("Enemy Die")]
-    public void Die()
+    private void Die()
     {
-        if (IsDead) return;
-
-        IsDead = true;
         if (OnDestroyed != null)
         {
             OnDestroyed.Invoke();
-            Destroy(gameObject);
         }
     }
 
