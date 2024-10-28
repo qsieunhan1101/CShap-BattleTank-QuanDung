@@ -12,5 +12,6 @@ public class Canvas_Pause : MonoBehaviour
     public void OnQuit()
     {
         Time.timeScale = 1.0f;
+        LevelManager.Instance.DestroyLevel();
     }
 }

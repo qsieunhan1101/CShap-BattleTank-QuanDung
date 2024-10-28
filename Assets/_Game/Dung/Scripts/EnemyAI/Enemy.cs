@@ -6,6 +6,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
+using UnityEngine.UI;
 using static UnityEngine.GraphicsBuffer;
 
 public class Enemy : MonoBehaviour
@@ -32,11 +33,16 @@ public class Enemy : MonoBehaviour
 
     public UnityEvent OnDestroyed;
 
-    private void OnDestroy()
-    {
-       
-    }
+    [Header("Heal")]
+    [SerializeField] private float hp;
+    [SerializeField] private float dame;
+    [SerializeField] private Slider healSlider;
+    [SerializeField] private float maxHp;
 
+    private void Start()
+    {
+        SetUpHealSlider();
+    }
     private void OnEnable()
     {
         OnInit();
@@ -120,6 +126,8 @@ public class Enemy : MonoBehaviour
             enemyBullet.transform.rotation = Quaternion.LookRotation(launchDirection);
             bulletrb.thisRigidbody.AddForce(launchDirection * bulletrb.Speed, ForceMode.Impulse);
             timeToNextFire = fireDelayTime;
+
+            bulletrb.dame = dame;
         }
     }
     public virtual void ChangeState(IState newState)
@@ -143,7 +151,23 @@ public class Enemy : MonoBehaviour
         }
     }
 
-
+    public void TankDame(float dame)
+    {
+        hp -= dame;
+        hp = Mathf.Clamp(hp, 0, maxHp);
+        healSlider.value = hp;
+        UpdateHealSlider();
+    }
+    private void UpdateHealSlider()
+    {
+        healSlider.value = hp;
+    }
+    private void SetUpHealSlider()
+    {
+        hp = maxHp;
+        healSlider.maxValue = maxHp;
+        healSlider.value = maxHp;
+    }
 
 
     private void OnDrawGizmos()

@@ -18,7 +18,9 @@ public class BulletEnemy : MonoBehaviour
     bool isLiving = true;
     //Ray ray = new Ray();
     Transform hitTransform;
-   
+
+
+    public float dame;
     //float damage = 10f;
     private void Start()
     {
@@ -44,6 +46,11 @@ public class BulletEnemy : MonoBehaviour
             burnEffect.SetActive(true);
             
             Destroy(this.gameObject, 0.5f);
+        }
+        if (other.CompareTag(Constant.Tag_Player))
+        {
+            other.GetComponent<Player>().TakeDame(dame);
+            Destroy(gameObject);
         }
        // Hit();
     }

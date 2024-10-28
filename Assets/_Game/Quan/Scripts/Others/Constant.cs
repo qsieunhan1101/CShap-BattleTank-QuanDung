@@ -6,7 +6,7 @@ using UnityEngine;
 public class Constant
 {
     //Tag
-
+    public const string Tag_Player = "Player";
     //Layer
 
     //PlayerPref Key

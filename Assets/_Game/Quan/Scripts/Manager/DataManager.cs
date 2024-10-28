@@ -37,12 +37,15 @@ public class DataManager : Singleton<DataManager>
     {
         Canvas_BuyTank.buyTankEvent += BuyTankEvent;
         Canvas_UpgradeTank.upgradeTankEvent += UpgradeTankEvent;
+        LevelManager.saveLevelEvent += SaveLevelEvent;
     }
 
     private void OnDisable()
     {
         Canvas_BuyTank.buyTankEvent -= BuyTankEvent;
         Canvas_UpgradeTank.upgradeTankEvent -= UpgradeTankEvent;
+        LevelManager.saveLevelEvent -= SaveLevelEvent;
+
     }
     private void Update()
     {
@@ -97,6 +100,11 @@ public class DataManager : Singleton<DataManager>
         playerData.gold = gold;
         playerData.tankLevels[id]++;
         playerData.tankLevels[id] = Mathf.Clamp(playerData.tankLevels[id], Constant.levelMin, Constant.levelMax);
+        SaveAndLoadPlayerData();
+    }
+    private void SaveLevelEvent(int level)
+    {
+        playerData.levelMap = level;
         SaveAndLoadPlayerData();
     }
     public int GetPlayerDataGold()
