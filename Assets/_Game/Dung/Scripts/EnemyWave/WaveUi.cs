@@ -1,18 +1,31 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
-public class WaveUi : MonoBehaviour
+public class WaveUI : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private Slider enemySlider;
+    [SerializeField] private WaveController waveController;
+
+    private void OnEnable()
     {
-        
+        waveController.OnEnemyDied.AddListener(UpdateSlider);
+        waveController.OnWaveCompleted.AddListener(UpdateSlider);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDisable()
     {
-        
+        waveController.OnEnemyDied.RemoveListener(UpdateSlider);
+        waveController.OnWaveCompleted.RemoveListener(UpdateSlider);
+    }
+
+    private void Start()
+    {
+        enemySlider.maxValue = waveController.TotalEnemyHere; 
+        enemySlider.value = enemySlider.maxValue; 
+    }
+
+    private void UpdateSlider()
+    {
+        enemySlider.value = waveController.TotalEnemyHere;
     }
 }

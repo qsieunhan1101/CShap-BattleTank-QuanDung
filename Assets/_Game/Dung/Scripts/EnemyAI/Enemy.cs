@@ -10,11 +10,12 @@ using static UnityEngine.GraphicsBuffer;
 
 public class Enemy : MonoBehaviour
 {
+    #region variable
     IState currentState;
     [Header("Character_Enemy")]
     [SerializeField] private Rigidbody rb;
     [SerializeField] Animator anim;
-    public bool IsDead;
+    public bool IsDead = false;
 
     [Header("Pool")]
     [SerializeField] private GameObject bulletBasePrefab;
@@ -28,14 +29,10 @@ public class Enemy : MonoBehaviour
  
     private float timeToNextFire = 0f;
     public float moveCheckRadius = 0.66f;
-
+    #endregion
 
     public UnityEvent OnDestroyed;
 
-    private void OnDestroy()
-    {
-       
-    }
 
     private void OnEnable()
     {
@@ -98,15 +95,6 @@ public class Enemy : MonoBehaviour
             && hit.collider.CompareTag(ConstProperty.borderTag);
     }
 
-    public virtual Quaternion GetRotation(Vector3 rotation)
-    {
-        return bodyTransform.rotation = Quaternion.LookRotation(rotation);
-    }
-
-    public bool CanMoveWithinRadius()
-    {
-        return !Physics.CheckSphere(transform.position, moveCheckRadius, LayerMask.GetMask(ConstProperty.obstacleLayer));
-    }
 
     public virtual void Fire()
     {
@@ -135,15 +123,18 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void Die()
+    [ContextMenu("Enemy Die")]
+    public void Die()
     {
+        if (IsDead) return;
+
+        IsDead = true;
         if (OnDestroyed != null)
         {
             OnDestroyed.Invoke();
+            Destroy(gameObject);
         }
     }
-
-
 
 
     private void OnDrawGizmos()

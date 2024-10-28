@@ -11519,6 +11519,9 @@ MonoBehaviour:
   - {x: 1, y: 0, z: 0}
   delta: 2.25
   moveCheckRadius: 0.66
+  OnDestroyed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &8280234351489161396
 GameObject:
   m_ObjectHideFlags: 0

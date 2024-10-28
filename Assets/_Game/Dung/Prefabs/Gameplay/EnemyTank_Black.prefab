@@ -970,7 +970,7 @@ MonoBehaviour:
   firePoint: {fileID: 297398037011934635}
   bodyTransform: {fileID: 7605825011584310910}
   fireDelayTime: 1.57
-  enemySpeed: 5.02
+  enemySpeed: 3
   directions:
   - {x: 0, y: 0, z: 1}
   - {x: 0, y: 0, z: -1}
@@ -978,6 +978,9 @@ MonoBehaviour:
   - {x: 1, y: 0, z: 0}
   delta: 1.57
   moveCheckRadius: 0.66
+  OnDestroyed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &8306579555560894929
 GameObject:
   m_ObjectHideFlags: 0
