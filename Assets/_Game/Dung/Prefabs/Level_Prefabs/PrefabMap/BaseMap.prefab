@@ -1417,16 +1417,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d95b426ab8ad214898b6f14b61ab7ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnEnemyDied:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8179594980423702223}
+        m_TargetAssemblyTypeName: WaveController, Assembly-CSharp
+        m_MethodName: UpdateEnemyCount
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnWaveCompleted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8179594980423702223}
+        m_TargetAssemblyTypeName: WaveController, Assembly-CSharp
+        m_MethodName: OnWaveComplete
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   waves:
   - {fileID: 11400000, guid: aea84b66513f35740be5ec3b3ad1533c, type: 2}
   - {fileID: 11400000, guid: 48cb4fe4c9efc15499f3539d1bc00b38, type: 2}
   spawnPoints: []
   WaveListContainer: {fileID: 1891321240840788478}
   effectSpawn: {fileID: 1354104851390296, guid: 4fb6898d322b5614daa376907680ac81, type: 3}
-  ListEnemy: {fileID: 1891321240840788478}
+  ListEnemy: []
   timeDestroyEffect: 1.5
   spawnPointContainer: {fileID: 403875065206459359}
-  <TotalEnemyCount>k__BackingField: 0
+  TotalEnemyCount: 0
 --- !u!1 &721169512121173226
 GameObject:
   m_ObjectHideFlags: 0
