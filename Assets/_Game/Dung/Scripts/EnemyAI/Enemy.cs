@@ -5,6 +5,7 @@ using Unity.IO.LowLevel.Unsafe;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 using static UnityEngine.GraphicsBuffer;
 
 public class Enemy : MonoBehaviour
@@ -27,6 +28,15 @@ public class Enemy : MonoBehaviour
  
     private float timeToNextFire = 0f;
     public float moveCheckRadius = 0.66f;
+
+
+    public UnityEvent OnDestroyed;
+
+    private void OnDestroy()
+    {
+       
+    }
+
     private void OnEnable()
     {
         OnInit();
@@ -124,6 +134,17 @@ public class Enemy : MonoBehaviour
             currentState.OnEnter(this);
         }
     }
+
+    private void Die()
+    {
+        if (OnDestroyed != null)
+        {
+            OnDestroyed.Invoke();
+        }
+    }
+
+
+
 
     private void OnDrawGizmos()
     {
