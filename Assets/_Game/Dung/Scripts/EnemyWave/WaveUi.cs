@@ -1,31 +1,56 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class WaveUI : MonoBehaviour
 {
     [SerializeField] private Slider enemySlider;
-    [SerializeField] private WaveController waveController;
+    [SerializeField] private List<WaveController> waveControllers; 
 
-    private void OnEnable()
-    {
-        waveController.OnEnemyDied.AddListener(UpdateSlider);
-        waveController.OnWaveCompleted.AddListener(UpdateSlider);
-    }
-
-    private void OnDisable()
-    {
-        waveController.OnEnemyDied.RemoveListener(UpdateSlider);
-        waveController.OnWaveCompleted.RemoveListener(UpdateSlider);
-    }
+    [SerializeField]
+    private int currentLevelIndex = 0;
 
     private void Start()
     {
-        enemySlider.maxValue = waveController.TotalEnemyHere; 
-        enemySlider.value = enemySlider.maxValue; 
+        SetDefaultLevelIndex();
+        UpdateSlider();
+    }
+
+    private void Update()
+    {
+        if (waveControllers != null && currentLevelIndex < waveControllers.Count)
+        {
+            UpdateSlider();
+        }
+    }
+
+    private void SetDefaultLevelIndex()
+    {
+        for (int i = 0; i < waveControllers.Count; i++)
+        {
+            if (waveControllers[i].gameObject.activeInHierarchy)
+            {
+                currentLevelIndex = i;
+                break; 
+            }
+        }
     }
 
     private void UpdateSlider()
     {
-        enemySlider.value = waveController.TotalEnemyHere;
+        SetDefaultLevelIndex();
+        if (waveControllers[currentLevelIndex] != null && enemySlider != null)
+        {
+            enemySlider.value = waveControllers[currentLevelIndex].GetPercentage();
+        }
+    }
+
+    public void SetCurrentLevel(int levelIndex)
+    {
+        if (levelIndex >= 0 && levelIndex < waveControllers.Count)
+        {
+            currentLevelIndex = levelIndex;
+            UpdateSlider();
+        }
     }
 }

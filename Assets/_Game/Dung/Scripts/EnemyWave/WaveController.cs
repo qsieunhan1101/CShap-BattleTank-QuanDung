@@ -4,55 +4,58 @@ using UnityEngine.Events;
 
 public class WaveController : MonoBehaviour
 {
-
-    public UnityEvent OnEnemyDied = new UnityEvent();
     public UnityEvent OnWaveCompleted = new UnityEvent();
 
-    [Header("Wave SpawnSpoint")]
+    [Header("Wave Spawn Points")]
     [SerializeField] private List<Wave> waves;
     [SerializeField] private List<Transform> spawnPoints;
+
     [Header("Wave List")]
-
-    [SerializeField] protected GameObject WaveListContainer;
-    [SerializeField] protected GameObject effectSpawn;
-    [SerializeField] protected List<GameObject> ListEnemy = new List<GameObject>();
-
-    [SerializeField] protected float timeDestroyEffect = 0.5f;
-
+    [SerializeField] private GameObject WaveListContainer;
+    [SerializeField] private GameObject effectSpawn;
+    [SerializeField] private List<GameObject> ListEnemy = new List<GameObject>();
+    [SerializeField] private float timeDestroyEffect = 0.5f;
     public GameObject spawnPointContainer;
 
-
-
-    private int currentWaveIndex = 0;
-    [SerializeField]
-    private int enemiesKilled = 0;
-    public int EnemiesKilled => enemiesKilled;
-
-
-    [field: SerializeField]
-    private int TotalEnemyCount;
-
-    public int TotalEnemyHere => TotalEnemyCount;
+    [SerializeField] private int currentWaveIndex = 0;
+    
+    [SerializeField] private int totalEnemies = 0;
+    [SerializeField] private int totalEnemiesKilled = 0;
+    [SerializeField] private int currentWaveEnemiesKilled = 0;
+    [SerializeField] private int currentWaveEnemyCount = 0;
 
     private void Start()
     {
-        TotalEnemyCount = 0;
+        CalculateTotalEnemyCount();
         TryGetPoint();
         SpawnWave(currentWaveIndex);
         OnWaveCompleted.AddListener(OnWaveComplete);
     }
 
-    [ContextMenu("Spawn")]
+    private void CalculateTotalEnemyCount()
+    {
+        totalEnemies = 0;
+        totalEnemiesKilled = 0;
+        foreach (var wave in waves)
+        {
+            for (int i = 0; i < wave.enemyCounts.Length; i++)
+            {
+                totalEnemies += wave.enemyCounts[i];
+            }
+        }
+    }
+
     private void SpawnWave(int waveIndex)
     {
         if (waveIndex >= waves.Count) return;
 
         Wave wave = waves[waveIndex];
-        TotalEnemyCount = 0;
+        currentWaveEnemiesKilled = 0;
+        currentWaveEnemyCount = 0;
 
         for (int i = 0; i < wave.enemyCounts.Length; i++)
         {
-            TotalEnemyCount += wave.enemyCounts[i];
+            currentWaveEnemyCount += wave.enemyCounts[i];
         }
 
         StartCoroutine(SpawnEnemies(wave));
@@ -69,27 +72,25 @@ public class WaveController : MonoBehaviour
                 GameObject enemy = Instantiate(wave.enemyPrefabs[i], randomSpawnPoint.position, randomSpawnPoint.rotation);
                 enemy.transform.SetParent(WaveListContainer.transform);
                 Destroy(effect, timeDestroyEffect);
-              
 
                 enemy.GetComponent<Enemy>().OnDestroyed.AddListener(UpdateEnemyCount);
                 ListEnemy.Add(enemy);
 
-                yield return new WaitForSeconds(0.1f);
+                yield return new WaitForSeconds(0.5f);
             }
         }
     }
 
     public void UpdateEnemyCount()
     {
-
-        enemiesKilled++;
-        if (enemiesKilled >= TotalEnemyCount)
+        currentWaveEnemiesKilled++;
+        totalEnemiesKilled++;
+        if (currentWaveEnemiesKilled >= currentWaveEnemyCount)
         {
             OnWaveCompleted.Invoke();
         }
     }
 
-    [ContextMenu("CompleteWave")]
     public void OnWaveComplete()
     {
         currentWaveIndex++;
@@ -106,30 +107,20 @@ public class WaveController : MonoBehaviour
 
     private void TryGetPoint()
     {
-        if (spawnPoints.Count > 0)
-        {
-            bool hasNullTransform = false;
-
-            for (int i = 0; i < spawnPoints.Count; i++)
-            {
-                if (spawnPoints[i] == null)
-                {
-                    hasNullTransform = true;
-                    break;
-                }
-            }
-
-            if (hasNullTransform)
-            {
-                spawnPoints.Clear();
-            }
-        }
         if (spawnPointContainer != null)
         {
             foreach (Transform point in spawnPointContainer.transform)
             {
-                spawnPoints.Add(point);
+                if (point != null)
+                {
+                    spawnPoints.Add(point);
+                }
             }
         }
+    }
+
+    public float GetPercentage()
+    {
+        return totalEnemies > 0 ? ( 1 -  (float)totalEnemiesKilled / totalEnemies ): 0f ;
     }
 }
