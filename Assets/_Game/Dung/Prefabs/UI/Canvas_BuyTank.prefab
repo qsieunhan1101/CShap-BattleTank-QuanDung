@@ -33,7 +33,7 @@ RectTransform:
   m_Father: {fileID: 8465423546738285298}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.828, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -308,7 +308,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c499cb0bc1c958479fa384ce5f2bb3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  angle: 0.7
+  angle: 0.4
 --- !u!1 &968707512822822206
 GameObject:
   m_ObjectHideFlags: 0
@@ -1006,7 +1006,7 @@ RectTransform:
   m_Father: {fileID: 1732236440108559053}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.52, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1423,11 +1423,12 @@ MonoBehaviour:
   - {fileID: 1280411966371439250}
   - {fileID: 263130270431523066}
   - {fileID: 3715415258696053498}
-  texts:
+  textSliders:
   - {fileID: 232997622596700051}
   - {fileID: 2727148374657629804}
   - {fileID: 8880010258720063675}
   tankNameText: {fileID: 4346797511308253395}
+  textGold: {fileID: 4680691180710510357}
   btnBuy: {fileID: 228500309065797279}
 --- !u!1 &4043449002277943025
 GameObject:
@@ -3496,7 +3497,7 @@ RectTransform:
   m_Father: {fileID: 3260102907383419752}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.575, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}

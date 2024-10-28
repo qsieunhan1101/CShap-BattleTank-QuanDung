@@ -1826,7 +1826,7 @@ RectTransform:
   m_Father: {fileID: 2765774495319451456}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.828, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1877,13 +1877,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4280722562222879904}
+  - component: {fileID: 842937667013822270}
   m_Layer: 5
   m_Name: Canvas_UpgradeTank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4280722562222879904
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1905,6 +1906,44 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &842937667013822270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2807008272588786956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44bf921cdf1d32c49849ac1885a7892c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tankData:
+    nameTank: 
+    iconTank: {fileID: 0}
+    iconTank3D: {fileID: 0}
+    priceTank: 0
+    dameTank: 0
+    hpTank: 0
+    speedTank: 0
+  idTank: 0
+  modelTankParent: {fileID: 876975083375683060}
+  sliders:
+  - {fileID: 6453054909170934804}
+  - {fileID: 597837190576809272}
+  - {fileID: 2963048475373279740}
+  slidersLevel: {fileID: 5822103592897406732}
+  textSliders:
+  - {fileID: 3430435224976452785}
+  - {fileID: 7654309949355364180}
+  - {fileID: 3448155242143452468}
+  textLevel: {fileID: 3107778357720870526}
+  tankNameText: {fileID: 4176132857247286054}
+  textGold: {fileID: 5214719086479038621}
+  btnUpgrade: {fileID: 3109151412043055750}
+  btnLeft: {fileID: 4776406003645762315}
+  btnRight: {fileID: 3599577539315077909}
+  btnPlayNow: {fileID: 6340261441179294529}
 --- !u!1 &2837611750310394863
 GameObject:
   m_ObjectHideFlags: 0
@@ -1950,9 +1989,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c499cb0bc1c958479fa384ce5f2bb3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  modelTankParent: {fileID: 876975083375683060}
-  angle: 0.7
-  modelTankPrefab: {fileID: 0}
+  angle: 0.4
 --- !u!1 &3190663295351690081
 GameObject:
   m_ObjectHideFlags: 0
@@ -3463,7 +3500,7 @@ RectTransform:
   m_Father: {fileID: 7778330510680024328}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.575, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3703,7 +3740,43 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3606058902522934930}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2807008272588786956}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!1 &6871314618679791030
 GameObject:
   m_ObjectHideFlags: 0
@@ -3736,10 +3809,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 4181731180618283779}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 113.4638, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 65.377625, y: -24.7835}
+  m_SizeDelta: {x: 113.4638, y: 49.567}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6516258023926556387
 CanvasRenderer:
@@ -3945,9 +4018,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 6457087154337273536}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -4.599884, y: -3.3010006}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -4.5998535, y: -3.3010006}
   m_SizeDelta: {x: 82.806, y: 59.445}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5806531492329355399
@@ -4207,7 +4280,7 @@ RectTransform:
   m_Father: {fileID: 3327776970478265284}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -4319,7 +4392,7 @@ RectTransform:
   m_Father: {fileID: 1350873227115538143}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.451, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -4673,10 +4746,10 @@ RectTransform:
   - {fileID: 6457087154337273536}
   m_Father: {fileID: 4181731180618283779}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 533.1323, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 388.6757, y: -24.7835}
+  m_SizeDelta: {x: 533.1323, y: 49.567}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5822103592897406732
 MonoBehaviour:

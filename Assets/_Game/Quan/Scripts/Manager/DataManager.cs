@@ -30,15 +30,19 @@ public class DataManager : Singleton<DataManager>
             Debug.Log("khong phai lan dau chay game");
 
         }
+
+        Canvas_Gold.Instance.UpdateGoldText();
     }
     private void OnEnable()
     {
         Canvas_BuyTank.buyTankEvent += BuyTankEvent;
+        Canvas_UpgradeTank.upgradeTankEvent += UpgradeTankEvent;
     }
 
     private void OnDisable()
     {
         Canvas_BuyTank.buyTankEvent -= BuyTankEvent;
+        Canvas_UpgradeTank.upgradeTankEvent -= UpgradeTankEvent;
     }
     private void Update()
     {
@@ -86,6 +90,13 @@ public class DataManager : Singleton<DataManager>
     {
         playerData.gold = gold;
         playerData.tankStates[id] = 1;
+        SaveAndLoadPlayerData();
+    }
+    private void UpgradeTankEvent(int gold, int id)
+    {
+        playerData.gold = gold;
+        playerData.tankLevels[id]++;
+        playerData.tankLevels[id] = Mathf.Clamp(playerData.tankLevels[id], Constant.levelMin, Constant.levelMax);
         SaveAndLoadPlayerData();
     }
     public int GetPlayerDataGold()

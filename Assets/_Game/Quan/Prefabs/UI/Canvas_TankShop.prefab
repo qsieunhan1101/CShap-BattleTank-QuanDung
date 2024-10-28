@@ -126,7 +126,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0.8422083}
-  m_AnchoredPosition: {x: -0.13000488, y: 0.47009277}
+  m_AnchoredPosition: {x: -0.12988281, y: 0.47021484}
   m_SizeDelta: {x: -0.26013184, y: -1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8337419623858483773
@@ -213,7 +213,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1370209717419125703
 RectTransform:
   m_ObjectHideFlags: 0
@@ -252,6 +252,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemTankShop_Parent: {fileID: 6607989578391431709}
   itemTankShop_Button: {fileID: 2889656150991197063, guid: 03b48737c3aa978449ee02c708e9eca5, type: 3}
+  buyTankUI: {fileID: 0}
 --- !u!1 &4564305717007076246
 GameObject:
   m_ObjectHideFlags: 0
@@ -360,7 +361,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -900.0001}
+  m_AnchoredPosition: {x: 0, y: -900.00006}
   m_SizeDelta: {x: 0, y: 1799.9998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1800484323407648354
@@ -423,7 +424,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 67.83118, y: -175.16882}
+  m_AnchoredPosition: {x: 67.831055, y: -175.16895}
   m_SizeDelta: {x: 135.6624, y: 130}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8848831668803431671
@@ -566,7 +567,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.8422083}
   m_AnchorMax: {x: 1, y: 0.86500007}
-  m_AnchoredPosition: {x: -0.13000488, y: -0.021057129}
+  m_AnchoredPosition: {x: -0.12988281, y: -0.020996094}
   m_SizeDelta: {x: -0.26000977, y: 0.042100906}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3197136612230244884
