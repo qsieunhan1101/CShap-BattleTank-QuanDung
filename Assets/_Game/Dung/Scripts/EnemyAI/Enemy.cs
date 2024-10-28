@@ -6,16 +6,16 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
+using UnityEngine.UI;
 using static UnityEngine.GraphicsBuffer;
 
 public class Enemy : MonoBehaviour
 {
-    #region variable
     IState currentState;
     [Header("Character_Enemy")]
     [SerializeField] private Rigidbody rb;
     [SerializeField] Animator anim;
-    public bool IsDead = false;
+    public bool IsDead;
 
     [Header("Pool")]
     [SerializeField] private GameObject bulletBasePrefab;
@@ -29,11 +29,20 @@ public class Enemy : MonoBehaviour
  
     private float timeToNextFire = 0f;
     public float moveCheckRadius = 0.66f;
-    #endregion
+
 
     public UnityEvent OnDestroyed;
 
+    [Header("Heal")]
+    [SerializeField] private float hp;
+    [SerializeField] private float dame;
+    [SerializeField] private Slider healSlider;
+    [SerializeField] private float maxHp;
 
+    private void Start()
+    {
+        SetUpHealSlider();
+    }
     private void OnEnable()
     {
         OnInit();
@@ -95,6 +104,15 @@ public class Enemy : MonoBehaviour
             && hit.collider.CompareTag(ConstProperty.borderTag);
     }
 
+    public virtual Quaternion GetRotation(Vector3 rotation)
+    {
+        return bodyTransform.rotation = Quaternion.LookRotation(rotation);
+    }
+
+    public bool CanMoveWithinRadius()
+    {
+        return !Physics.CheckSphere(transform.position, moveCheckRadius, LayerMask.GetMask(ConstProperty.obstacleLayer));
+    }
 
     public virtual void Fire()
     {
@@ -108,6 +126,8 @@ public class Enemy : MonoBehaviour
             enemyBullet.transform.rotation = Quaternion.LookRotation(launchDirection);
             bulletrb.thisRigidbody.AddForce(launchDirection * bulletrb.Speed, ForceMode.Impulse);
             timeToNextFire = fireDelayTime;
+
+            bulletrb.dame = dame;
         }
     }
     public virtual void ChangeState(IState newState)
@@ -123,17 +143,30 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    [ContextMenu("Enemy Die")]
-    public void Die()
+    private void Die()
     {
-        if (IsDead) return;
-
-        IsDead = true;
         if (OnDestroyed != null)
         {
             OnDestroyed.Invoke();
-            Destroy(gameObject);
         }
+    }
+
+    public void TankDame(float dame)
+    {
+        hp -= dame;
+        hp = Mathf.Clamp(hp, 0, maxHp);
+        healSlider.value = hp;
+        UpdateHealSlider();
+    }
+    private void UpdateHealSlider()
+    {
+        healSlider.value = hp;
+    }
+    private void SetUpHealSlider()
+    {
+        hp = maxHp;
+        healSlider.maxValue = maxHp;
+        healSlider.value = maxHp;
     }
 
 

@@ -116,7 +116,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6033486280498477325}
   - component: {fileID: 7909414894962752039}
-  - component: {fileID: 1694089547676093826}
+  - component: {fileID: 1328961492260460898}
   m_Layer: 5
   m_Name: Canvas_MainTabs
   m_TagString: Untagged
@@ -169,7 +169,7 @@ MonoBehaviour:
   inactiveTabColor:
     serializedVersion: 2
     rgba: 4294967295
---- !u!114 &1694089547676093826
+--- !u!114 &1328961492260460898
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -181,6 +181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ba799ff622786545bf54c4fa77f2e6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainMenuUI: {fileID: 0}
 --- !u!1001 &868876796182778787
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -287,7 +288,8 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: ec7f2f3cd984cd9499bd136d632f17e3, type: 3}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5769787654668560831, guid: f3d980ae9f2a56f4088842a4ce734b64, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -393,7 +395,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5769787654668560831, guid: f3d980ae9f2a56f4088842a4ce734b64, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -509,7 +512,8 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: d932974084a07c1428585c82eb6f4281, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5769787654668560831, guid: f3d980ae9f2a56f4088842a4ce734b64, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -640,7 +644,8 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 1f3ca096857b5d1428eb9d32ed2c3032, type: 3}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5769787654668560831, guid: f3d980ae9f2a56f4088842a4ce734b64, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

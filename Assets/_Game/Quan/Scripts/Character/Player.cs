@@ -1,8 +1,8 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-
     private enum Direct
     {
         Right,
@@ -27,6 +27,13 @@ public class Player : MonoBehaviour
     [SerializeField] private float timeDelay;
     [SerializeField] private float timeToNextFire;
 
+    [Header("Heal")]
+    [SerializeField] private float hp;
+    [SerializeField] private float maxHp;
+    [SerializeField] private float dame;
+    [SerializeField] private Slider healSlider;
+
+
 
     private Rigidbody rb;
 
@@ -38,8 +45,13 @@ public class Player : MonoBehaviour
         directionMove = Vector3.forward;
 
 
-    }
 
+    }
+    private void OnEnable()
+    {
+        SetUpHealSlider();
+
+    }
     private void Update()
     {
         Move();
@@ -50,6 +62,12 @@ public class Player : MonoBehaviour
             {
                 isDelayFire = false;
             }
+        }
+
+        //test Slider
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            TakeDame(10);
         }
     }
 
@@ -89,7 +107,7 @@ public class Player : MonoBehaviour
         Bullet b = bullet.GetComponent<Bullet>();
         bullet.transform.position = muzzle.position;
         bullet.transform.rotation = Quaternion.LookRotation(transform.forward);
-
+        b.dame = dame;
         b.direction = directionMove;
 
     }
@@ -159,5 +177,22 @@ public class Player : MonoBehaviour
             }
         }
 
+    }
+
+    public void TakeDame(float dame)
+    {
+        hp -= dame;
+        hp = Mathf.Clamp(hp, 0, maxHp);
+        UpdateUIHeal();
+    }
+    private void SetUpHealSlider()
+    {
+        hp = maxHp;
+        healSlider.maxValue = maxHp;
+        healSlider.value = maxHp;
+    }
+    private void UpdateUIHeal()
+    {
+        healSlider.value = hp;
     }
 }

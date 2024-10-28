@@ -1,18 +1,68 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
-public class LevelManager : MonoBehaviour
+public class LevelManager : Singleton<LevelManager>
 {
-    // Start is called before the first frame update
+    [SerializeField] private GameObject[] levelMapPrefabs;
+    [SerializeField] private Transform levelParent;
+
+    [SerializeField] private GameObject playerPrefab;
+
+    [SerializeField] private int currentLevel;
+
+
+    public static Action<int> saveLevelEvent;
     void Start()
     {
-        
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+
     }
+
+
+    public void LoadLevel(int levelIndex)
+    {
+        currentLevel = levelIndex;
+        DestroyLevel();
+
+        GameObject levelMap = Instantiate(levelMapPrefabs[levelIndex], levelParent);
+
+
+        GameObject player = Instantiate(playerPrefab, levelParent);
+    }
+
+    public void NextLevel()
+    {
+        currentLevel++;
+        currentLevel = Mathf.Clamp(currentLevel, 0, levelMapPrefabs.Length - 1);
+        LoadLevel(currentLevel);
+    }
+    public void ReLoadLevel()
+    {
+        LoadLevel(currentLevel);
+    }
+
+
+    public void SaveLevel()
+    {
+        saveLevelEvent?.Invoke(currentLevel);
+    }
+
+    public void LoadHighestLevel()
+    {
+        currentLevel = DataManager.Instance.PlayerData.levelMap;
+        LoadLevel(currentLevel);
+    }
+
+
+    public void DestroyLevel()
+    {
+        foreach (Transform child in levelParent)
+        {
+            Destroy(child.gameObject);
+        }
+    }
+
 }

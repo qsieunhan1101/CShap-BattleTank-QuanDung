@@ -12,7 +12,11 @@ public class Bullet : MonoBehaviour
     private Rigidbody rb;
     public Vector3 direction;
 
+    [Header("Effect")]
+    [SerializeField] private ParticleSystem bulletParticle;
+    [SerializeField] private Transform bulletVfx;
 
+    public float dame;
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -37,6 +41,25 @@ public class Bullet : MonoBehaviour
             Quaternion rota = Quaternion.LookRotation(rb.velocity);
             bulletBody.rotation = rota;
 
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag(ConstProperty.obstacleTag))
+        {
+            other.gameObject.SetActive(false);
+            rb.isKinematic = true;
+            bulletVfx.gameObject.SetActive(false);
+            bulletParticle.gameObject.SetActive(true);
+
+
+            Destroy(gameObject, 0.5f);
+        }
+        if (other.CompareTag(ConstProperty.enemyTag))
+        {
+            other.transform.GetComponent<Enemy>().TankDame(dame);
+            Destroy(gameObject);
         }
     }
 }
