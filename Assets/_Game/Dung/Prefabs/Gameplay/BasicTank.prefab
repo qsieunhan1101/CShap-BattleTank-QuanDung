@@ -651,6 +651,10 @@ MonoBehaviour:
   OnDestroyed:
     m_PersistentCalls:
       m_Calls: []
+  hp: 0
+  dame: 0
+  healSlider: {fileID: 3144427855621719370}
+  maxHp: 0
 --- !u!1 &5154032553527261237
 GameObject:
   m_ObjectHideFlags: 0
