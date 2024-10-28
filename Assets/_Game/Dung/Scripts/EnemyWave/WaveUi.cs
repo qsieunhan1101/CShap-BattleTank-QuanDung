@@ -14,7 +14,10 @@ public class WaveUI : MonoBehaviour
     {
         SetDefaultLevelIndex();
         UpdateSlider();
+
+
     }
+
 
     private void Update()
     {
@@ -52,5 +55,10 @@ public class WaveUI : MonoBehaviour
             currentLevelIndex = levelIndex;
             UpdateSlider();
         }
+    }
+
+    public void AddWaveController(WaveController waveController)
+    {
+        waveControllers.Add(waveController);
     }
 }

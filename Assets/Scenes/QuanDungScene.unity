@@ -1318,6 +1318,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4328101438624352060, guid: f17f9a2f67881694eaa6c63c4a2e7848, type: 3}
+      propertyPath: waveUI
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5837395091113350957, guid: f17f9a2f67881694eaa6c63c4a2e7848, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

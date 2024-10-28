@@ -54,6 +54,7 @@ MonoBehaviour:
   direction: {x: 0, y: 0, z: 0}
   bulletParticle: {fileID: 94980387949904374}
   bulletVfx: {fileID: 8413695816598258878}
+  dame: 0
 --- !u!54 &-4200656262241178292
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -100,8 +101,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.34241456, y: 0.3901229, z: 1.7019076}
-  m_Center: {x: 0.014632255, y: -0.004066229, z: 0.0076631308}
+  m_Size: {x: 1.1773041, y: 0.3901229, z: 1.7019076}
+  m_Center: {x: -0.016782938, y: -0.004066234, z: 0.007663135}
 --- !u!1 &5918577687312844651
 GameObject:
   m_ObjectHideFlags: 0

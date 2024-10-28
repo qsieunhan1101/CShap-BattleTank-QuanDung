@@ -49180,21 +49180,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d95b426ab8ad214898b6f14b61ab7ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnEnemyDied:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4574678915509670344}
-        m_TargetAssemblyTypeName: WaveController, Assembly-CSharp
-        m_MethodName: UpdateEnemyCount
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   OnWaveCompleted:
     m_PersistentCalls:
       m_Calls: []
@@ -49207,8 +49192,11 @@ MonoBehaviour:
   ListEnemy: []
   timeDestroyEffect: 1.5
   spawnPointContainer: {fileID: 4241464889788387335}
-  enemiesKilled: 0
-  TotalEnemyCount: 0
+  currentWaveIndex: 0
+  totalEnemies: 0
+  totalEnemiesKilled: 0
+  currentWaveEnemiesKilled: 0
+  currentWaveEnemyCount: 0
 --- !u!1 &7809124943925936688
 GameObject:
   m_ObjectHideFlags: 0
