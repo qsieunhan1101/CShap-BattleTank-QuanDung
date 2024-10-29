@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Canvas_GamePlay : Singleton<Canvas_GamePlay>
 {
-    [SerializeField] WaveUI waveUI;
+    //[SerializeField] WaveUI waveUI;
     private void Start()
     {
         
@@ -18,6 +18,6 @@ public class Canvas_GamePlay : Singleton<Canvas_GamePlay>
 
     public void AddWaveController(WaveController waveController)
     {
-        waveUI.AddWaveController(waveController);
+      //  waveUI.AddWaveController(waveController);
     }
 }

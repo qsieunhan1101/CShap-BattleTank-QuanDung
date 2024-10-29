@@ -794,6 +794,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3883349884807751756, guid: f17f9a2f67881694eaa6c63c4a2e7848, type: 3}
   m_PrefabInstance: {fileID: 787480869003809044}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1620931195 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3048313450028289069, guid: f17f9a2f67881694eaa6c63c4a2e7848, type: 3}
+  m_PrefabInstance: {fileID: 787480869003809044}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1620931194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32f178155506fbe40b7ed454fba492df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1632516388
 GameObject:
   m_ObjectHideFlags: 0
@@ -1010,6 +1021,7 @@ MonoBehaviour:
   levelParent: {fileID: 1848854274}
   playerPrefab: {fileID: 657108374135539201, guid: 9edf5618aab7a264e959731f47ce9a7e, type: 3}
   currentLevel: 0
+  waveUI: {fileID: 1620931195}
 --- !u!4 &1848854274
 Transform:
   m_ObjectHideFlags: 0
@@ -1306,21 +1318,9 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 276391359}
-    - target: {fileID: 2254237308835698392, guid: f17f9a2f67881694eaa6c63c4a2e7848, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -0.00036621094
-      objectReference: {fileID: 0}
     - target: {fileID: 3883349884807751756, guid: f17f9a2f67881694eaa6c63c4a2e7848, type: 3}
       propertyPath: m_Name
       value: Canvas_GamePlay
-      objectReference: {fileID: 0}
-    - target: {fileID: 3883349884807751756, guid: f17f9a2f67881694eaa6c63c4a2e7848, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4328101438624352060, guid: f17f9a2f67881694eaa6c63c4a2e7848, type: 3}
-      propertyPath: waveUI
-      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5837395091113350957, guid: f17f9a2f67881694eaa6c63c4a2e7848, type: 3}
       propertyPath: m_Pivot.x
@@ -1401,18 +1401,6 @@ PrefabInstance:
     - target: {fileID: 5837395091113350957, guid: f17f9a2f67881694eaa6c63c4a2e7848, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6128265558590172879, guid: f17f9a2f67881694eaa6c63c4a2e7848, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6128265558590172879, guid: f17f9a2f67881694eaa6c63c4a2e7848, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7588015209186319332, guid: f17f9a2f67881694eaa6c63c4a2e7848, type: 3}
-      propertyPath: m_TargetGraphic
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

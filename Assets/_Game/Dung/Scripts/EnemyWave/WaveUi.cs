@@ -6,7 +6,6 @@ public class WaveUI : MonoBehaviour
 {
     [SerializeField] private Slider enemySlider;
     [SerializeField] private List<WaveController> waveControllers;
-    private WaveController currentWayController;
     [SerializeField]
     private int currentLevelIndex = 0;
 
@@ -51,17 +50,4 @@ public class WaveUI : MonoBehaviour
         }
     }
 
-    public void SetCurrentLevel(int levelIndex)
-    {
-        if (levelIndex >= 0 && levelIndex < waveControllers.Count)
-        {
-            currentLevelIndex = levelIndex;
-            UpdateSlider();
-        }
-    }
-
-    public void AddWaveController(WaveController waveController)
-    {
-        waveControllers.Add(waveController);
-    }
 }
