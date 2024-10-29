@@ -853,7 +853,7 @@ GameObject:
   - component: {fileID: 1316968521792076323}
   m_Layer: 6
   m_Name: BasicTank
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -958,7 +958,7 @@ MonoBehaviour:
   hp: 0
   dame: 10
   healSlider: {fileID: 1259837797119467957}
-  maxHp: 100
+  maxHp: 50
 --- !u!1 &5154032553527261237
 GameObject:
   m_ObjectHideFlags: 0

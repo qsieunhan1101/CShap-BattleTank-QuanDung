@@ -1260,7 +1260,7 @@ MonoBehaviour:
   hp: 0
   dame: 10
   healSlider: {fileID: 1327456392568948859}
-  maxHp: 100
+  maxHp: 200
 --- !u!1 &7710967289935338277
 GameObject:
   m_ObjectHideFlags: 0

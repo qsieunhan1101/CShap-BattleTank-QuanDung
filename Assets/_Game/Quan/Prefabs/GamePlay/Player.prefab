@@ -57,7 +57,7 @@ MonoBehaviour:
   timeToNextFire: 0
   hp: 0
   maxHp: 100
-  dame: 10
+  dame: 70
   healSlider: {fileID: 7206058012302083615}
 --- !u!65 &3721375776261065663
 BoxCollider:

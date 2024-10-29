@@ -161,10 +161,12 @@ public class Enemy : MonoBehaviour
 
     public void TankDame(float dame)
     {
+        
         hp -= dame;
         hp = Mathf.Clamp(hp, 0, maxHp);
         healSlider.value = hp;
         UpdateHealSlider();
+        if (hp <= 20) { Die(); }
     }
     private void UpdateHealSlider()
     {
