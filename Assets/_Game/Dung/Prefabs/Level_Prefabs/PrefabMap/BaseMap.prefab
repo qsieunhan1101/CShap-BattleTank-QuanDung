@@ -1381,7 +1381,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7506803457118848522}
-  - component: {fileID: 8179594980423702223}
   m_Layer: 0
   m_Name: SpawnerWave
   m_TagString: Untagged
@@ -1405,58 +1404,6 @@ Transform:
   - {fileID: 3713624292862199374}
   m_Father: {fileID: 1881774731358483847}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8179594980423702223
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 642240319834582844}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d95b426ab8ad214898b6f14b61ab7ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnEnemyDied:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8179594980423702223}
-        m_TargetAssemblyTypeName: WaveController, Assembly-CSharp
-        m_MethodName: UpdateEnemyCount
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnWaveCompleted:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8179594980423702223}
-        m_TargetAssemblyTypeName: WaveController, Assembly-CSharp
-        m_MethodName: OnWaveComplete
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  waves:
-  - {fileID: 11400000, guid: aea84b66513f35740be5ec3b3ad1533c, type: 2}
-  - {fileID: 11400000, guid: 48cb4fe4c9efc15499f3539d1bc00b38, type: 2}
-  spawnPoints: []
-  WaveListContainer: {fileID: 1891321240840788478}
-  effectSpawn: {fileID: 1354104851390296, guid: 4fb6898d322b5614daa376907680ac81, type: 3}
-  ListEnemy: []
-  timeDestroyEffect: 1.5
-  spawnPointContainer: {fileID: 403875065206459359}
-  TotalEnemyCount: 0
 --- !u!1 &721169512121173226
 GameObject:
   m_ObjectHideFlags: 0
@@ -20041,6 +19988,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1881774731358483847}
   - component: {fileID: 6870089840286015846}
+  - component: {fileID: 8195100667937236876}
   m_Layer: 0
   m_Name: BaseMap
   m_TagString: Untagged
@@ -20107,6 +20055,47 @@ MonoBehaviour:
   spawnLimits: 1e000000030000002800000003000000
   EnemySpawnListContainer: {fileID: 1997702300667102439}
   spawnedObjects: []
+--- !u!114 &8195100667937236876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6439560498722421034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d95b426ab8ad214898b6f14b61ab7ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnWaveCompleted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8195100667937236876}
+        m_TargetAssemblyTypeName: WaveController, Assembly-CSharp
+        m_MethodName: OnWaveComplete
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  waves:
+  - {fileID: 11400000, guid: aea84b66513f35740be5ec3b3ad1533c, type: 2}
+  - {fileID: 11400000, guid: 48cb4fe4c9efc15499f3539d1bc00b38, type: 2}
+  spawnPoints: []
+  WaveListContainer: {fileID: 1891321240840788478}
+  effectSpawn: {fileID: 1354104851390296, guid: 4fb6898d322b5614daa376907680ac81, type: 3}
+  ListEnemy: []
+  timeDestroyEffect: 1.5
+  spawnPointContainer: {fileID: 403875065206459359}
+  currentWaveIndex: 0
+  totalEnemies: 0
+  totalEnemiesKilled: 0
+  currentWaveEnemiesKilled: 0
+  currentWaveEnemyCount: 0
 --- !u!1 &6518875896850257560
 GameObject:
   m_ObjectHideFlags: 0

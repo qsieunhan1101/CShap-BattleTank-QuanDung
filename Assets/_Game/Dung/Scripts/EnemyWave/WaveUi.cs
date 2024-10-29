@@ -5,17 +5,14 @@ using System.Collections.Generic;
 public class WaveUI : MonoBehaviour
 {
     [SerializeField] private Slider enemySlider;
-    [SerializeField] private List<WaveController> waveControllers; 
-
+    [SerializeField] private List<WaveController> waveControllers;
+    private WaveController currentWayController;
     [SerializeField]
     private int currentLevelIndex = 0;
 
     private void Start()
     {
         SetDefaultLevelIndex();
-        UpdateSlider();
-
-
     }
 
 
@@ -34,14 +31,20 @@ public class WaveUI : MonoBehaviour
             if (waveControllers[i].gameObject.activeInHierarchy)
             {
                 currentLevelIndex = i;
+                UpdateSlider();
                 break; 
             }
         }
     }
 
-    private void UpdateSlider()
+    public void RegisterWaveController(WaveController waveController)
     {
-        SetDefaultLevelIndex();
+        waveControllers.Add(waveController);
+        currentLevelIndex = waveControllers.Count - 1;
+        UpdateSlider(); 
+    }
+    public void UpdateSlider()
+    {
         if (waveControllers[currentLevelIndex] != null && enemySlider != null)
         {
             enemySlider.value = waveControllers[currentLevelIndex].GetPercentage();

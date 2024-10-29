@@ -12,6 +12,11 @@ public class LevelManager : Singleton<LevelManager>
 
 
     public static Action<int> saveLevelEvent;
+
+    #region Dung 
+    [SerializeField] private WaveUI waveUI;
+
+    #endregion
     void Start()
     {
     }
@@ -29,8 +34,15 @@ public class LevelManager : Singleton<LevelManager>
 
         GameObject levelMap = Instantiate(levelMapPrefabs[levelIndex], levelParent);
 
+        WaveController waveController = levelMap.GetComponent<WaveController>(); 
 
         GameObject player = Instantiate(playerPrefab, levelParent);
+
+        if (waveUI != null && waveController != null)
+        {
+            waveUI.RegisterWaveController(waveController); 
+        }
+
     }
 
     public void NextLevel()
