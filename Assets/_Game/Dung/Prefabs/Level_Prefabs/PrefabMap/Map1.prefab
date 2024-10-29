@@ -42551,7 +42551,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6716719301743610249}
-  - component: {fileID: 2045393485183570617}
   - component: {fileID: 8740100134957510913}
   m_Layer: 0
   m_Name: Map1
@@ -42580,35 +42579,6 @@ Transform:
   - {fileID: 8980906274608771970}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 180, y: -0, z: -180}
---- !u!114 &2045393485183570617
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6677753400789135195}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d95b426ab8ad214898b6f14b61ab7ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnWaveCompleted:
-    m_PersistentCalls:
-      m_Calls: []
-  waves:
-  - {fileID: 11400000, guid: aea84b66513f35740be5ec3b3ad1533c, type: 2}
-  - {fileID: 11400000, guid: 48cb4fe4c9efc15499f3539d1bc00b38, type: 2}
-  spawnPoints: []
-  WaveListContainer: {fileID: 8723777683339505523}
-  effectSpawn: {fileID: 1354104851390296, guid: 4fb6898d322b5614daa376907680ac81, type: 3}
-  ListEnemy: []
-  timeDestroyEffect: 1.5
-  spawnPointContainer: {fileID: 4241464889788387335}
-  currentWaveIndex: 0
-  totalEnemies: 0
-  totalEnemiesKilled: 0
-  currentWaveEnemiesKilled: 0
-  currentWaveEnemyCount: 0
 --- !u!114 &8740100134957510913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49174,6 +49144,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 685406916080406973}
+  - component: {fileID: 4574678915509670344}
   m_Layer: 0
   m_Name: SpawnerWave
   m_TagString: Untagged
@@ -49197,6 +49168,35 @@ Transform:
   - {fileID: 4753627971490725010}
   m_Father: {fileID: 6716719301743610249}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4574678915509670344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7784339276468053788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d95b426ab8ad214898b6f14b61ab7ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnWaveCompleted:
+    m_PersistentCalls:
+      m_Calls: []
+  waves:
+  - {fileID: 11400000, guid: aea84b66513f35740be5ec3b3ad1533c, type: 2}
+  - {fileID: 11400000, guid: 48cb4fe4c9efc15499f3539d1bc00b38, type: 2}
+  spawnPoints: []
+  WaveListContainer: {fileID: 8723777683339505523}
+  effectSpawn: {fileID: 1354104851390296, guid: 4fb6898d322b5614daa376907680ac81, type: 3}
+  ListEnemy: []
+  timeDestroyEffect: 1.5
+  spawnPointContainer: {fileID: 4241464889788387335}
+  currentWaveIndex: 0
+  totalEnemies: 0
+  totalEnemiesKilled: 0
+  currentWaveEnemiesKilled: 0
+  currentWaveEnemyCount: 0
 --- !u!1 &7809124943925936688
 GameObject:
   m_ObjectHideFlags: 0
